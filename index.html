@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
     <div id="root">
-        <input type="text" name="name" id="input" v-model="newName">
-        <button v-on:click="addName">Add Name</button>
+        <h1>
+            All Tasks
+        </h1>
 
-        <li v-for="name in names">
-            {{ name }}
-        </li>
+        <ul>
+            <li v-for="task in tasks" v-text="task.description"></li>
+        </ul>
+
+        <h1>
+            Completed Tasks
+        </h1>
+
+        <ul>
+            <li v-for="task in incomPleteTasks" v-text="task.description"></li>
+        </ul>
     </div>
-    
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
@@ -23,17 +33,20 @@
         new Vue({
             el: '#root',
             data: {
-                names: ['Joe', 'Mary', 'Jane', 'Jack'],
-                newName: ''
+                tasks: [
+                    { description: 'Go to the store', completed: true },
+                    { description: 'Go to the mall', completed: false },
+                    { description: 'Buy new clothes', completed: false }
+                ]
             },
 
-            methods: {
-                addName(){
-                    this.names.push(this.newName);
-                    this.newName = '';
+            computed: {
+                incomPleteTasks(){
+                    return this.tasks.filter(task => !task.completed);
                 }
             }
         });
     </script>
 </body>
+
 </html>
