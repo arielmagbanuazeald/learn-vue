@@ -6,47 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
 </head>
 
 <body>
     <div id="root">
-        <h1>
-            All Tasks
-        </h1>
-
-        <ul>
-            <li v-for="task in tasks" v-text="task.description"></li>
-        </ul>
-
-        <h1>
-            Completed Tasks
-        </h1>
-
-        <ul>
-            <li v-for="task in incomPleteTasks" v-text="task.description"></li>
-        </ul>
+        <task-list></task-list>
+        <message title="My Title" body="My message!!!"></message>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-    <script>
-        new Vue({
-            el: '#root',
-            data: {
-                tasks: [
-                    { description: 'Go to the store', completed: true },
-                    { description: 'Go to the mall', completed: false },
-                    { description: 'Buy new clothes', completed: false }
-                ]
-            },
-
-            computed: {
-                incomPleteTasks(){
-                    return this.tasks.filter(task => !task.completed);
-                }
-            }
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
