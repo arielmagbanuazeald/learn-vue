@@ -11,11 +11,18 @@
 </head>
 
 <body>
-    <div id="root">
-        <!-- <task-list></task-list>
-        <message title="My Title" body="My message!!!"></message> -->
-        <modal v-if="showModal" @close="showModal = false">Sample modal.</modal>
-        <button @click="showModal = true">Show Modal</button>
+    <div id="root" class="container">
+        <tabs>
+            <tab name="About Us" :selected="true">
+                <h1>About Us Content</h1>
+            </tab>
+            <tab name="About Our Culture">
+                <h1>About Our Culture Content</h1>
+            </tab>
+            <tab name="About Our Vision">
+                <h1>About Us Vision Content</h1>
+            </tab>
+        </tabs>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
