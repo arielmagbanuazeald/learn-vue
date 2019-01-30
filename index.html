@@ -8,21 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+
+    <style>
+        body {
+            padding-top: 40px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="root" class="container">
-        <tabs>
-            <tab name="About Us" :selected="true">
-                <h1>About Us Content</h1>
-            </tab>
-            <tab name="About Our Culture">
-                <h1>About Our Culture Content</h1>
-            </tab>
-            <tab name="About Our Vision">
-                <h1>About Us Vision Content</h1>
-            </tab>
-        </tabs>
+        <coupon @applied="onCouponApplied"></coupon>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
